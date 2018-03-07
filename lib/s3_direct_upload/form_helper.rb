@@ -50,7 +50,6 @@ module S3DirectUpload
         {
           :key => @options[:key] || key,
           :acl => @options[:acl],
-          "AWSAccessKeyId" => @options[:aws_access_key_id],
           :policy => policy,
           :signature => signature,
           :success_action_status => "201",
