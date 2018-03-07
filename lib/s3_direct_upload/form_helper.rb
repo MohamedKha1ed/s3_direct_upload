@@ -20,7 +20,6 @@ module S3DirectUpload
         @key_starts_with = options[:key_starts_with] || "uploads/"
         @options = options.reverse_merge(
           aws_access_key_id: S3DirectUpload.config.access_key_id,
-          aws_secret_access_key: S3DirectUpload.config.secret_access_key,
           bucket: options[:bucket] || S3DirectUpload.config.bucket,
           ssl: true,
           acl: "public-read",
@@ -29,7 +28,6 @@ module S3DirectUpload
           callback_method: "POST",
           callback_param: "file",
           key_starts_with: @key_starts_with,
-          key: key,
           server_side_encryption: nil
         )
       end
@@ -48,7 +46,7 @@ module S3DirectUpload
 
       def fields
         {
-          
+
           :acl => @options[:acl],
           :policy => policy,
           :signature => signature,
