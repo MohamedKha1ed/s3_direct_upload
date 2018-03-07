@@ -48,7 +48,7 @@ module S3DirectUpload
 
       def fields
         {
-          :key => @options[:key] || key,
+          
           :acl => @options[:acl],
           :policy => policy,
           :signature => signature,
